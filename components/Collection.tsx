@@ -1,29 +1,22 @@
 import {
-  Box,
   GridItem,
   Img,
   SimpleGrid,
-  Stack,
   Text,
   Modal,
   ModalOverlay,
   ModalContent,
   ModalBody,
-  ModalCloseButton,
   useDisclosure,
-  Skeleton,
-  Link,
-  Button,
 } from '@chakra-ui/react';
 import type { NextPage } from 'next';
 import { useCallback, useContext, useEffect, useState } from 'react';
 import GelatoArt from './GelatoArt.json';
 import { create } from 'ipfs-http-client';
 import _ from 'lodash';
-import { useAccount, useContract, useProvider } from 'wagmi';
+import { useContract, useProvider } from 'wagmi';
 import { UserContext } from '@/lib/UserContext';
 import EmptyCollection from '@/components/EmptyCollection';
-import MintSecondary from './MintSecondary';
 
 const projectId = process.env.NEXT_PUBLIC_INFRA_PROJECT_ID;
 const projectSecret = process.env.NEXT_PUBLIC_INFRA_SECRET;
