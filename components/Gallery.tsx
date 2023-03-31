@@ -147,7 +147,7 @@ const Gallery: NextPage = () => {
             cursor="pointer"
             onClick={() => showNFT(nft)}
           >
-            <Img w="full" h="auto" src={nft.image} borderRadius="md" />
+            <Img w="full" h="auto" src={nft.image} />
           </GridItem>
         ))}
       <Modal size={'md'} isOpen={isOpen} onClose={onClose}>
