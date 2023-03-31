@@ -6,12 +6,17 @@ export default function Home() {
     <Box bg="#fafafc" minH="100vh">
       <Navbar />
       <Box
-        left={['1', '1', '36']}
-        right={['1', '1', '36']}
+        left={['4', '4', '36']}
+        right={['4', '4', '36']}
         position="fixed"
         top="20"
-        px="4"
       >
+        {/* <Flex gap="2" pb="2">
+          <Text>Start with a detailed description</Text>
+          <Button size="xs" fontWeight="extrabold">
+            Surprise me
+          </Button>
+        </Flex> */}
         <Flex
           boxShadow="0 2px 4px 0 rgba(0,0,82,.15)"
           w="full"
@@ -19,10 +24,11 @@ export default function Home() {
           bg="white"
         >
           <Input
-            placeholder="pfp of a generative AI artist, digital art, postmodernism"
+            placeholder="pfp of an AI-native artist, digital art, postmodernism"
             border="none"
             borderRightRadius="0"
-            p="6"
+            py="6"
+            px="3"
             fontSize="sm"
           />
           <Button
