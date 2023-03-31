@@ -119,7 +119,7 @@ const Gallery: NextPage = () => {
   return (
     <SimpleGrid
       columns={{ base: 2, md: 2, lg: 4 }}
-      maxWidth="8xl"
+      maxWidth="7xl"
       mx="auto"
       columnGap={2}
       rowGap={2}
