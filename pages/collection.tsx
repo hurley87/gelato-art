@@ -1,12 +1,10 @@
-import Gallery from '@/components/Gallery';
 import Layout from '@/components/Layout';
-import Mint from '@/components/Mint';
+import Collection from '@/components/Collection';
 
 export default function Home() {
   return (
     <Layout>
-      <Mint />
-      <Gallery />
+      <Collection />
     </Layout>
   );
 }

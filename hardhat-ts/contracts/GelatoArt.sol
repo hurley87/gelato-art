@@ -9,7 +9,7 @@ import {
     ERC2771Context
 } from "@gelatonetwork/relay-context/contracts/vendor/ERC2771Context.sol";
 
-contract GelatoArt is ERC721, ERC721URIStorage, ERC2771Context {
+contract GelatoArt is ERC721, ERC721Enumerable, ERC721URIStorage, ERC2771Context {
     using Counters for Counters.Counter;
     Counters.Counter private currentTokenId;
 
@@ -24,7 +24,15 @@ contract GelatoArt is ERC721, ERC721URIStorage, ERC2771Context {
     }
 
     function tokenURI(uint256 tokenId) public view override(ERC721, ERC721URIStorage) returns (string memory) {
-    return super.tokenURI(tokenId);
+        return super.tokenURI(tokenId);
+    }
+
+    function _beforeTokenTransfer(address from, address to, uint256 tokenId, uint256 batchId) internal override(ERC721, ERC721Enumerable) {
+        super._beforeTokenTransfer(from, to, tokenId, batchId);
+    }
+
+    function supportsInterface(bytes4 interfaceId) public view override(ERC721, ERC721Enumerable) returns (bool) {
+        return super.supportsInterface(interfaceId);
     }
 
     function mint(address recipient, string memory tokenURI)
@@ -48,4 +56,6 @@ contract GelatoArt is ERC721, ERC721URIStorage, ERC2771Context {
     function _msgData() internal view override(Context, ERC2771Context) returns (bytes calldata) {
         return super._msgData();
     }
+
+    
 }

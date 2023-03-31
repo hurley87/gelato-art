@@ -40,7 +40,7 @@ const Navbar = () => {
       p="4"
       borderBottom="1px solid rgba(0,0,0,.05)"
       position="fixed"
-      zIndex="9999"
+      zIndex="1"
     >
       <HStack gap={0}>
         <NextLink href="/" passHref>
@@ -61,17 +61,33 @@ const Navbar = () => {
           alignItems="center"
           textDecoration="none"
           gap={2}
+          color="gray.500"
+          fontWeight="semibold"
         >
+          <NextLink href="/collection" passHref>
+            <Text fontSize="sm" color="gray.500" fontWeight="semibold">
+              Collection
+            </Text>
+          </NextLink>
+          <Text>|</Text>
           <Link
             href={`https://base-goerli.blockscout.com/address/${user.address}?tab=token_transfers`}
             target="_blank"
             fontSize="sm"
             cursor="pointer"
+            color="gray.500"
+            fontWeight="semibold"
           >
-            <Badge colorScheme="orange">{formatAddress(user.address)}</Badge>
+            {formatAddress(user.address)}
           </Link>
           <Text>|</Text>
-          <Text fontSize="sm" cursor="pointer" onClick={logout}>
+          <Text
+            fontSize="sm"
+            cursor="pointer"
+            color="gray.500"
+            fontWeight="semibold"
+            onClick={logout}
+          >
             Logout
           </Text>
         </Flex>
@@ -82,11 +98,13 @@ const Navbar = () => {
           textDecoration="none"
           gap={3}
         >
-          <NextLink href="/collection" passHref>
-            <Text fontSize="sm">Collection</Text>
-          </NextLink>
-          <Text>|</Text>
-          <Text fontSize="sm" cursor="pointer" onClick={connect}>
+          <Text
+            fontSize="sm"
+            color="gray.500"
+            fontWeight="semibold"
+            cursor="pointer"
+            onClick={connect}
+          >
             Login
           </Text>
         </Flex>
