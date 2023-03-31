@@ -51,7 +51,6 @@ const Gallery: NextPage = () => {
   const [nftsLoaded, setNftsLoaded] = useState(false);
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [selectedNFT, setSelectedNFT] = useState<any>(null);
-  const { address } = useAccount();
 
   const getFromIPFS = async (cid: string) => {
     const decoder = new TextDecoder();
@@ -125,6 +124,19 @@ const Gallery: NextPage = () => {
       columnGap={2}
       rowGap={2}
     >
+      {!nftsLoaded &&
+        [1, 2, 3, 4, 5, 6, 7, 8].map((nft: any) => (
+          <GridItem
+            key={nft.i}
+            bg="blue.500"
+            display="relative"
+            h="full"
+            cursor="pointer"
+            onClick={() => showNFT(nft)}
+          >
+            <Skeleton w="full" h="350px" />
+          </GridItem>
+        ))}
       {nftsLoaded &&
         nfts.map((nft: any) => (
           <GridItem
