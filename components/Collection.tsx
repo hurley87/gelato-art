@@ -59,7 +59,6 @@ const Collection: NextPage = () => {
   const getNFTs = useCallback(async () => {
     try {
       const totalSupply = await contract?.totalSupply();
-      console.log(totalSupply.toNumber());
 
       if (!totalSupply) return;
 
@@ -107,8 +106,6 @@ const Collection: NextPage = () => {
     onOpen();
     setSelectedNFT(nft);
   };
-
-  console.log(nfts);
 
   return (
     <SimpleGrid

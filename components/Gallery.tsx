@@ -1,5 +1,4 @@
 import {
-  Box,
   GridItem,
   Img,
   SimpleGrid,
@@ -9,18 +8,15 @@ import {
   ModalOverlay,
   ModalContent,
   ModalBody,
-  ModalCloseButton,
   useDisclosure,
   Skeleton,
-  Link,
-  Button,
 } from '@chakra-ui/react';
 import type { NextPage } from 'next';
 import { useCallback, useContext, useEffect, useState } from 'react';
 import GelatoArt from './GelatoArt.json';
 import { create } from 'ipfs-http-client';
 import _ from 'lodash';
-import { useAccount, useContract, useProvider } from 'wagmi';
+import { useContract, useProvider } from 'wagmi';
 import { UserContext } from '@/lib/UserContext';
 import MintSecondary from './MintSecondary';
 
@@ -65,7 +61,6 @@ const Gallery: NextPage = () => {
   const getNFTs = useCallback(async () => {
     try {
       const totalSupply = await contract?.totalSupply();
-      console.log(totalSupply.toNumber());
 
       if (!totalSupply) return;
 
@@ -114,8 +109,6 @@ const Gallery: NextPage = () => {
     setSelectedNFT(nft);
   };
 
-  console.log(nfts);
-
   return (
     <SimpleGrid
       columns={{ base: 2, md: 2, lg: 4 }}
@@ -125,14 +118,13 @@ const Gallery: NextPage = () => {
       rowGap={2}
     >
       {!nftsLoaded &&
-        [1, 2, 3, 4, 5, 6, 7, 8].map((nft: any) => (
+        [1, 2, 3, 4, 5, 6, 7, 8].map((i: number) => (
           <GridItem
-            key={nft.i}
+            key={i}
             bg="blue.500"
             display="relative"
             h="full"
             cursor="pointer"
-            onClick={() => showNFT(nft)}
           >
             <Skeleton w="full" h="350px" />
           </GridItem>
