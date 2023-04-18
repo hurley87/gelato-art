@@ -8,7 +8,7 @@ import { Toaster } from 'react-hot-toast';
 import { ethers } from 'ethers';
 
 const provider = new providers.JsonRpcProvider(
-  'https://fabled-proportionate-grass.base-goerli.quiknode.pro/43a2893a730d0ac6376b0fbd184c18c94d408504/',
+  'hhttps://responsive-palpable-violet.base-goerli.quiknode.pro/7a6b981506c0cc9cb4544c20fabd1307e5827f67/',
   { name: 'base-goerli', chainId: 84531, ensAddress: undefined }
 );
 
